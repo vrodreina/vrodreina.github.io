@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victoria Reina — Senior Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F2EFE9;
+      --cream-soft: #EBE6DC;
+      --cream-dark: #DDD6C7;
+      --border: #2A2722;
+      --border-soft: #C9C2B3;
+      --ink: #1A1916;
+      --ink-mid: #3A3530;
+      --ink-muted: #6B6258;
+      --accent: #E55A2B;
+      --accent-soft: #FFD8C2;
+      --accent-blue: #2B4FE5;
+      --accent-yellow: #F2C94C;
+      --white: #FFFFFF;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(242, 239, 233, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: color 0.18s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--cream) !important;
+      padding: 12px 22px !important;
+      border-radius: 100px;
+      font-weight: 500;
+      transition: background 0.18s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 180px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-socials {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .hero-socials a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .hero-socials a:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      letter-spacing: 0.4px;
+    }
+    .hero-counter::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero-name {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 0.86;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-size: clamp(80px, 16vw, 240px);
+      margin-bottom: 40px;
+    }
+    .hero-name .first,
+    .hero-name .last {
+      display: block;
+    }
+    .hero-name .last {
+      font-style: italic;
+      font-weight: 400;
+      padding-left: 0.18em;
+    }
+    .hero-name .last::after {
+      content: '.';
+      color: var(--accent);
+    }
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-top: 20px;
+    }
+    .hero-role {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .hero-role-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .hero-tagline {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      max-width: 460px;
+    }
+    .hero-tagline em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* Floating shapes */
+    .shape {
+      position: absolute;
+      pointer-events: none;
+      z-index: -3;
+    }
+    .shape-circle-1 {
+      top: 220px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.92;
+    }
+    .shape-pill-1 {
+      top: 220px;
+      right: 25%;
+      width: 110px;
+      height: 50px;
+      background: var(--accent-blue);
+      border-radius: 100px;
+      transform: rotate(32deg);
+    }
+    .shape-square-1 {
+      bottom: 180px;
+      right: 15%;
+      width: 56px;
+      height: 56px;
+      background: var(--accent-yellow);
+      transform: rotate(20deg);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+      overflow: hidden;
+      background: var(--cream);
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 56px;
+      white-space: nowrap;
+      animation: marquee 38s linear infinite;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .marquee-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 56px;
+    }
+    .marquee-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION SHARED ── */
+    .section {
+      padding: 140px 0;
+      position: relative;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+    .section-label-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .section-heading {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      font-size: clamp(52px, 8vw, 110px);
+      margin-bottom: 60px;
+    }
+    .section-heading em {
+      font-style: italic;
+      font-weight: 400;
+    }
+    .section-heading .accent { color: var(--accent); }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--cream);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-body {
+      max-width: 520px;
+    }
+    .about-body p {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      margin-bottom: 24px;
+    }
+    .about-body p:last-of-type { margin-bottom: 36px; }
+    .about-pull {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1.25;
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-left: 3px solid var(--accent);
+      padding: 8px 0 8px 26px;
+      margin-bottom: 40px;
+    }
+    .about-aside-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--cream-dark);
+      border: 2px dashed var(--border-soft);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--ink-muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .about-photo svg {
+      width: 32px; height: 32px;
+      stroke: var(--ink-muted);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .about-photo .photo-shape {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.85;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .chip {
+      font-size: 13px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      padding: 6px 16px;
+      border-radius: 100px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .chip:hover { background: var(--ink); color: var(--cream); }
+
+    /* ── SERVICES (numbered) ── */
+    .services {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+    .services-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 80px;
+      max-width: 900px;
+    }
+    .services-intro em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1.2fr;
+      gap: 40px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+      transition: padding 0.3s;
+    }
+    .service-row:last-child { border-bottom: 1px solid var(--border); }
+    .service-row:hover { padding-left: 12px; }
+    .service-num {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      font-feature-settings: 'tnum';
+    }
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+    }
+    .service-desc {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      padding-top: 8px;
+    }
+
+    /* ── WORK / EXPERIENCE ── */
+    .work {
+      background: var(--cream-soft);
+      border-top: 1px solid var(--border);
+    }
+    .role-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 44px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .role-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 160px;
+      height: 160px;
+      background: var(--accent-soft);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .role-card-inner { position: relative; z-index: 1; }
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-soft);
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .role-title {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .role-company {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .role-tenure {
+      font-size: 13px;
+      color: var(--ink);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .role-body {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+    .role-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .role-tag {
+      font-size: 12px;
+      color: var(--ink);
+      background: var(--cream);
+      border: 1px solid var(--border-soft);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    /* ── PROJECTS ── */
+    .projects {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 40px 36px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px -20px rgba(26, 25, 22, 0.18);
+    }
+    .project-num {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .project-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-soft);
+    }
+    .project-name {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .project-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .project-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 5px 13px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    .project-block {
+      margin-bottom: 18px;
+    }
+    .project-block-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--ink-muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .project-block-body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+    }
+    .project-divider {
+      border: none;
+      border-top: 1px dashed var(--border-soft);
+      margin: 22px 0;
+    }
+    .project-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .pill {
+      font-size: 11px;
+      background: var(--cream);
+      color: var(--ink);
+      border: 1px solid var(--border-soft);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ── PERSPECTIVE / WHY-ME ── */
+    .perspective {
+      background: var(--cream-soft);
+      border-top: 1px solid var(--border);
+    }
+    .perspective-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .perspective-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .perspective-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .perspective-item:last-child { border-bottom: none; }
+    .perspective-check {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .perspective-check svg {
+      width: 16px; height: 16px;
+      stroke: var(--white);
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .perspective-text {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .perspective-aside {
+      position: sticky;
+      top: 120px;
+    }
+    .perspective-aside p {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+    .perspective-aside p em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    /* ── CONTACT / CTA ── */
+    .contact {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 160px 0 140px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact .section-label { color: var(--cream); opacity: 0.6; }
+    .contact-heading {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+      font-size: clamp(64px, 11vw, 160px);
+      margin-bottom: 60px;
+    }
+    .contact-heading em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .contact-sub {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--cream);
+      opacity: 0.7;
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--cream);
+      color: var(--ink);
+      padding: 18px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .contact-btn.primary { background: var(--accent); color: var(--white); }
+    .contact-btn:hover { transform: translateY(-2px); }
+    .contact-btn.primary:hover { background: var(--white); color: var(--ink); }
+    .contact-btn svg {
+      width: 16px; height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(242, 239, 233, 0.18);
+    }
+    .contact-meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--cream);
+      opacity: 0.5;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .contact-meta-value {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.3;
+    }
+    .contact-shape-1 {
+      position: absolute;
+      top: 80px;
+      right: -100px;
+      width: 280px;
+      height: 280px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.25;
+      filter: blur(2px);
+    }
+    .contact-shape-2 {
+      position: absolute;
+      bottom: 60px;
+      right: 12%;
+      width: 80px;
+      height: 80px;
+      background: var(--accent-yellow);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 60px 0 40px;
+      border-top: 1px solid rgba(242, 239, 233, 0.12);
+    }
+    .footer-name {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(80px, 18vw, 280px);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: var(--cream);
+      margin-bottom: 40px;
+    }
+    .footer-name .last { font-style: italic; font-weight: 400; padding-left: 0.18em; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(242, 239, 233, 0.12);
+      font-size: 13px;
+      color: var(--cream);
+      opacity: 0.6;
+    }
+    .footer-bottom a {
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 920px) {
+      .container { padding: 0 28px; }
+      .nav-inner { padding: 18px 28px; }
+      .nav-links { display: none; }
+      .nav-cta { display: inline-flex !important; padding: 10px 18px !important; font-size: 12px; }
+      .hero { padding: 130px 0 60px; }
+      .hero-eyebrow-row { margin-bottom: 40px; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 30px; }
+      .section { padding: 90px 0; }
+      .about-grid, .perspective-grid { grid-template-columns: 1fr; gap: 50px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .service-row { grid-template-columns: 50px 1fr; gap: 20px; }
+      .service-desc { grid-column: 2; padding-top: 0; }
+      .role-card { padding: 32px 28px; }
+      .contact-meta { grid-template-columns: 1fr; gap: 24px; }
+      .perspective-aside { position: static; }
+      .shape-circle-1 { width: 140px; height: 140px; }
+    }
+    @media (max-width: 480px) {
+      .role-header { flex-direction: column; align-items: flex-start; }
+      .contact-btn { width: 100%; justify-content: center; }
+      .role-card::before { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Victoria Reina
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-eyebrow-row">
+      <ul class="hero-socials">
+        <li><a href="mailto:vrodreina@gmail.com">Email</a></li>
+        <li><a href="https://linkedin.com/in/vickireina" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <span class="hero-counter">Open to new remote product roles · 2026</span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="first">Victoria</span>
+      <span class="last">Reina</span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div>
+        <div class="hero-role-eyebrow">Senior Product Manager · PlayMPE</div>
+        <div class="hero-role">Product Strategy &amp; Launch Specialist</div>
+      </div>
+      <p class="hero-tagline">
+        I make complex product changes <em>understandable, shippable, and supportable</em> — across the teams who build them and the people who use them.
+      </p>
+    </div>
+  </div>
+
+  <div class="shape shape-circle-1"></div>
+  <div class="shape shape-pill-1"></div>
+  <div class="shape shape-square-1"></div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>
+      Product Strategy <span class="marquee-dot"></span>
+      Launch Management <span class="marquee-dot"></span>
+      Cross-functional Delivery <span class="marquee-dot"></span>
+      Internal Enablement <span class="marquee-dot"></span>
+      Requirements &amp; Unblocking <span class="marquee-dot"></span>
+      Feedback &amp; Judgment <span class="marquee-dot"></span>
+    </span>
+    <span>
+      Product Strategy <span class="marquee-dot"></span>
+      Launch Management <span class="marquee-dot"></span>
+      Cross-functional Delivery <span class="marquee-dot"></span>
+      Internal Enablement <span class="marquee-dot"></span>
+      Requirements &amp; Unblocking <span class="marquee-dot"></span>
+      Feedback &amp; Judgment <span class="marquee-dot"></span>
+    </span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-dot"></span>
+      About
+    </div>
+    <h2 class="section-heading">The person <em>behind</em> the product<span class="accent">.</span></h2>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <p>
+          I’m a Senior Product Manager working at the intersection of strategy, delivery, and people. At PlayMPE, I manage a cross-product portfolio across Caster and Player, and am highly involved in MTR as well. A big part of my work is turning messy real-world business rules into clear, usable experiences that actually work for the people relying on them.
+        <p>
+          As a systems thinker, my brain naturally perceives challenges holistically, so I have a strong grasp on how changes and decisions ripple through the product, teams, and the organization. This anticipatory thinking is makes product work my happy place. I value integrity, communication, and empathy for others and am forever seeking to learn and understand from those around me.
+        </p>
+        <p>
+          My path into product has been a little multidisciplinary. I have a B.Sc. in Neuroscience, a postgraduate diploma in Data Science and Business Analytics, and ~5 years of experience in marketing and content creation. That mix has shaped the way I approach product: curious about how people think, comfortable working with data, and always focused on clear communication.
+        </p>
+        <p>
+          I'm also a small business owner! From operations to execution, I've been involved in interviewing new staff, ordering supplies, bookkeeping, and sometimes just rolling up my sleeves to get the job done alongside my crew.
+        </p>
+        <p>
+          Outside of my professional career, I'm a mother with 12 years experience, a bilingual Spanish and English speaker, a lover of yoga when I get around to it, and still eat Sour Patch Kids regularly.
+        </p>
+      </div>
+      <div>
+        <div class="about-photo">
+          <div class="photo-shape"></div>
+          <!---<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>--->
+          <img src="/Users/victoriareina/Downloads/Untitled design/2.png"
+          width="600"/>
+          <!---<span>Your photo here</span>-->
+        </div>
+
+        <blockquote class="about-pull">
+          "A great product manager has the brain of an engineer, the heart of a designer, and the speech of a diplomat." -Deep Nishar
+        </blockquote>
+
+        <div class="about-aside-label">Tools &amp; methods</div>
+        <div class="chip-row">
+          <span class="chip">Jira</span>
+          <span class="chip">Confluence</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Statsig</span>
+          <span class="chip">Claude</span>
+          <span class="chip">Retool</span>
+          <span class="chip">Whiteboards</span>
+          <span class="chip">Loom</span>
+          <span class="chip">Slack</span>
+          <span class="chip">OKRs</span>
+          <span class="chip">Feature gates</span>
+          <span class="chip">Phased delivery</span>
+          <span class="chip">Release notes</span>
+          <span class="chip">User feedback loops</span>
+        </div>
+
+        <div class="about-aside-label">Based in</div>
+        <div class="chip-row">
+          <span class="chip">Alberta, Canada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES / COMPETENCIES
+══════════════════════════════════════ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-dot"></span>
+      What I do
+    </div>
+    <h3 class="services-intro">
+      I help teams ship <em>complex product changes</em> that actually land — not just launch.
+    </h3>
+
+    <div class="service-list">
+
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div class="service-title">Product Strategy &amp; Roadmapping</div>
+        <div class="service-desc">OKR definition, FY vision documents, phased planning across quarters, and roadmap maintenance tracking deployed, in-dev, and deprioritized initiatives.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div class="service-title">Launch Management</div>
+        <div class="service-desc">Release readiness, feature-gated rollouts, post-launch monitoring, and controlled release practices that reduce risk without slowing momentum.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div class="service-title">Cross-functional Delivery</div>
+        <div class="service-desc">Bridging dev, design, QA, sales, support, marketing, and ops — acting as the operational link between business stakeholders and development teams.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div class="service-title">Internal Enablement</div>
+        <div class="service-desc">Loom walkthroughs, training sessions and lunch & learns, release notes, FigJam boards, FAQs, and resource hubs that make product changes actually stick across the org.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">05</div>
+        <div class="service-title">Requirements &amp; Developer Unblocking</div>
+        <div class="service-desc">Chasing down stakeholder approvals, clarifying edge cases, owning fast decisions, and keeping development moving without unnecessary bottlenecks.</div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">06</div>
+        <div class="service-title">Feedback Intake &amp; Product Judgment</div>
+        <div class="service-desc">Triaging bugs and client feedback, distinguishing quick fixes from holistic improvements, and making the call on when not to patch a surface problem.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WORK / EXPERIENCE
+══════════════════════════════════════ -->
+<section class="section work" id="work">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-dot"></span>
+      Experience
+    </div>
+    <h2 class="section-heading">Currently <em>building</em> at<span class="accent">.</span></h2>
+
+    <div class="role-card">
+      <div class="role-card-inner">
+        <div class="role-header">
+          <div>
+            <div class="role-title">Senior Product Manager</div>
+            <div class="role-company">PlayMPE · Destiny Media Technologies</div>
+          </div>
+          <span class="role-tenure">2022 — Present</span>
+        </div>
+        <p class="role-body">
+          PlayMPE is a music distribution platform that connects artists and labels with decision makers in radio, sync and licensing. Artists upload their music to Caster to then distribute globally.  Radio programmers can then stream and download those tracks from Player. MTR tracks radio station spins, giving users insights on their promotional campaign. 
+        </p>
+        <p class="role-body">
+          I have full ownership across Caster and Player, and collaborate closely with MTR. Responsible for product vision and OKRs for FY2026–FY2027, launch coordination, stakeholder communication, and post-launch iteration. Act as the primary bridge between business stakeholders, development, design, QA, sales, marketing, support, and operations — ensuring complex product changes are understood, supportable, and successfully adopted across the organization.
+        </p>
+        <div class="role-tags">
+          <span class="role-tag">Product vision</span>
+          <span class="role-tag">OKRs</span>
+          <span class="role-tag">Roadmapping</span>
+          <span class="role-tag">Product analytics</span>
+          <span class="role-tag">Launch coordination</span>
+          <span class="role-tag">Stakeholder management</span>
+          <span class="role-tag">Post-launch iteration</span>
+          <span class="role-tag">Jira & project management</span>
+          <span class="role-tag">Internal enablement</span>
+          <span class="role-tag">Platform PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-dot"></span>
+      Selected projects
+    </div>
+    <h2 class="section-heading">Things I've <em>shipped</em><span class="accent">.</span></h2>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-num">Project 01</div>
+        <span class="project-badge">End-to-end delivery</span>
+        <h3 class="project-name">Self Checkout & Payment Processing</h3>
+        <div class="project-meta">Caster · Monetization &amp; Billing</div>
+
+        <div class="project-block">
+          <div class="project-block-label">The problem</div>
+          <p class="project-block-body">PlayMPE's billing and distribution rules had historically been managed manually, meaning pricing logic had become a highly customized affair. Bringing checkout & payment into Caster meant standardizing that logic and streamlining billing operations for our services team without breaking existing workflows.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I owned</div>
+          <p class="project-block-body">I drove the project from requirements through post-launch — gathering acceptance criteria, coordinating phased development, documenting known limitations, preparing internal FAQs and training materials, and managing staged rollout communication. I also worked directly with developers to define where scope would grow and where analytics events were needed before future decisions could be made.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I learned</div>
+          <p class="project-block-body">Business logic complexity is directly correlated to product and development complexity. Also, productizing manual processes is as much about surfacing what nobody has written down as it is about writing requirements. The most valuable work happened before a line of code was written — understanding the edge cases that everyone assumed someone else had already handled.</p>
+        </div>
+
+        <div class="project-pills">
+          <span class="pill">Requirements gathering</span>
+          <span class="pill">Pricing logic</span>
+          <span class="pill">Phased rollout</span>
+          <span class="pill">Launch comms</span>
+          <span class="pill">Post-launch triage</span>
+          <span class="pill">Internal enablement</span>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-num">Project 02</div>
+        <span class="project-badge">Multi-phase initiative</span>
+        <h3 class="project-name">Reporting — Phases 1 through Full Report</h3>
+        <div class="project-meta">Caster · Data &amp; Analytics</div>
+
+        <div class="project-block">
+          <div class="project-block-label">The problem</div>
+          <p class="project-block-body">PlayMPE's reporting experience needed a full rethink — but the scope was too large to ship at once. The challenge was breaking meaningful work into phases that delivered value incrementally while maintaining a coherent vision across multiple launches.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I owned</div>
+          <p class="project-block-body">I scoped and sequenced the Reporting initiative across Phase 1, Phase 2, Phase 3, and the Full Report launch. This included creating FigJam walkthroughs, maintaining a central training session as the reference point for each phase, coordinating marketing and client-facing communication assets, and iterating based on post-launch feedback — including handling temporary workarounds for missing columns while fixes were in progress.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I learned</div>
+          <p class="project-block-body">Multi-phase delivery only works when each phase has a clear why. Users and internal teams lose confidence if a launch feels incomplete without context. Framing each release as part of a larger story — and giving people a consistent place to go for updates — made the iteration process feel intentional rather than patchy.</p>
+        </div>
+
+        <div class="project-pills">
+          <span class="pill">Phased planning</span>
+          <span class="pill">FigJam</span>
+          <span class="pill">Training sessions</span>
+          <span class="pill">Feedback iteration</span>
+          <span class="pill">Client comms</span>
+          <span class="pill">Marketing coordination</span>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-num">Project 03</div>
+        <span class="project-badge">Cross-product</span>
+        <h3 class="project-name">Share A Release</h3>
+        <div class="project-meta">Caster + Player · Ecosystem feature</div>
+
+        <div class="project-block">
+          <div class="project-block-label">The problem</div>
+          <p class="project-block-body">Music releases were reaching their initial recipients, but stopping there. There was an opportunity to let Player users share releases with one another, extending reach for Caster senders without requiring them to do anything differently.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I owned</div>
+          <p class="project-block-body">I launched Share a Release across both Caster and Player, coordinating functionality that spanned two separate product surfaces. This required understanding value from both the sender and recipient perspective, preparing demo recordings and release notes for each side, setting expectations around known launch hiccups, and coordinating post-launch feedback across both pods.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I learned</div>
+          <p class="project-block-body">Cross-product features expose gaps in how teams think about their product's edges. The hardest part wasn't the feature itself — it was making sure both pods understood why the other side's behavior mattered to their users. The framing work was as important as the coordination work.</p>
+        </div>
+
+        <div class="project-pills">
+          <span class="pill">Cross-product coordination</span>
+          <span class="pill">Sender &amp; recipient value</span>
+          <span class="pill">Demo recordings</span>
+          <span class="pill">Dual-surface launch</span>
+          <span class="pill">Post-launch feedback</span>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card">
+        <div class="project-num">Project 04</div>
+        <span class="project-badge">Strategic integration</span>
+        <h3 class="project-name">MTR × Caster Reporting Integration</h3>
+        <div class="project-meta">Caster + MTR · Cross-product strategy</div>
+
+        <div class="project-block">
+          <div class="project-block-label">The problem</div>
+          <p class="project-block-body">Radio tracking data from MTR lived in a separate product, disconnected from where Caster users were already analyzing their release performance. Making that data accessible within Caster reporting required coordinating across two product teams with different owners, different user contexts, and different rollout timelines.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I owned</div>
+          <p class="project-block-body">I coordinated the integration of MTR airplay data directly into Caster's release reporting view. This included defining the different CTA states within Caster; one for users with purchased tracking and the other for users without. I also communicated a feature-gated rollout plan to internal teams while supporting cross-functional understanding across both pods.</p>
+        </div>
+        <hr class="project-divider" />
+        <div class="project-block">
+          <div class="project-block-label">What I learned</div>
+          <p class="project-block-body">Integrations between products with separate owners require a clear owner for the seam. Someone has to hold the user experience across the handoff point — what a user sees, what they can do, and what happens when they don't have access yet. That's a PM responsibility, not a design one.</p>
+        </div>
+
+        <div class="project-pills">
+          <span class="pill">Feature gates</span>
+          <span class="pill">Cross-pod coordination</span>
+          <span class="pill">CTA state design</span>
+          <span class="pill">Internal comms</span>
+          <span class="pill">Rollout planning</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PERSPECTIVE — why work with me
+══════════════════════════════════════ -->
+<section class="section perspective">
+  <div class="container">
+    <div class="perspective-grid">
+      <div class="perspective-aside">
+        <div class="section-label">
+          <span class="section-label-dot"></span>
+          Why teams partner with me
+        </div>
+        <p>
+          Good launches <em>aren't accidents.</em> They come from translation, judgment, and the quiet work that happens between sprints.
+        </p>
+      </div>
+      <ul class="perspective-list">
+        <li class="perspective-item">
+          <div class="perspective-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="perspective-text">I make complex product changes legible — to developers, executives, and end users alike.</div>
+        </li>
+        <li class="perspective-item">
+          <div class="perspective-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="perspective-text">I own the moments after launch, not just the moments before.</div>
+        </li>
+        <li class="perspective-item">
+          <div class="perspective-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="perspective-text">I treat enablement — FAQs, training, walkthroughs — as part of the product, not an afterthought.</div>
+        </li>
+        <li class="perspective-item">
+          <div class="perspective-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="perspective-text">I know when a quick fix is the wrong move, and I can defend the call.</div>
+        </li>
+        <li class="perspective-item">
+          <div class="perspective-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="perspective-text">I work cleanly across pods, products, and seams that no one else owns.</div>
+        </li>
+        <li class="perspective-item">
+          <div class="perspective-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="perspective-text">I approach every challenge with empathy, organization and calm confidence, empowering my team in the process. </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-label-dot"></span>
+      Let's talk
+    </div>
+    <h2 class="contact-heading">
+      Let's build something <em>people remember.</em>
+    </h2>
+    <p class="contact-sub">
+      Open to conversations about remote product roles - Sr PM, PMM or Product Ops - consulting, collaborations, or just connecting with people who care about making things that actually work. I love anything education-adjacent or women empowering. Email is the best way in.
+    </p>
+
+    <div class="contact-row">
+      <a class="contact-btn primary" href="mailto:vrodreina@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a class="contact-btn" href="https://linkedin.com/in/vickireina" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="contact-meta">
+      <div>
+        <div class="contact-meta-label">Based in</div>
+        <div class="contact-meta-value">Alberta, Canada</div>
+      </div>
+      <div>
+        <div class="contact-meta-label">Currently</div>
+        <div class="contact-meta-value">Senior PM at PlayMPE</div>
+      </div>
+      <div>
+        <div class="contact-meta-label">Open to</div>
+        <div class="contact-meta-value">Product roles, product strategy consulting or collaboration</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-shape-1"></div>
+  <div class="contact-shape-2"></div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-name">
+      <span class="first">Victoria</span><br>
+      <span class="last">Reina.</span>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Victoria Reina · Senior Product Manager</span>
+      <ul class="footer-links">
+        <li><a href="mailto:vrodreina@gmail.com">Email</a></li>
+        <li><a href="https://linkedin.com/in/vickireina" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
